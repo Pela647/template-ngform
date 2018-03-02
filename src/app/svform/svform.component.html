@@ -15,7 +15,7 @@
                   <input placeholder="Password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" required minlength="8" ngModel name="password" id="password" #password="ngModel" type="password" class="form-control">
                   <div class="alert alert-danger" *ngIf="password.touched && !password.valid">
                     <div *ngIf="password.errors.required">Password is required</div>
-                    <div *ngIf="password.errors.pattern">Password should contain uppercase, lowercase and number</div>
+                    <div *ngIf="password.errors.pattern">Password should contain uppercase and lowercase</div>
                     <div *ngIf="password.errors.minlength">Password should be minimum {{ password.errors.minlength.requiredLength }} characters</div>
                   </div>
               </div>
