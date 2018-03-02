@@ -1,0 +1,54 @@
+<div class="row">
+    <div id="main" class="col-md-5">
+        <h4>Template Driven Angular Form</h4>
+          <form #f="ngForm" (ngSubmit)="submit(f)">
+              <div class="form-group">
+                  <label for="userName"></label>
+                  <input placeholder="User Name" required minlength="3" maxlength="15" ngModel name="userName" id="userName" #userName="ngModel" type="text" class="form-control">
+                  <div class="alert alert-danger" *ngIf="userName.touched && !userName.valid">
+                    <div *ngIf="userName.errors.required">User name is required</div>
+                    <div *ngIf="userName.errors.minlength">User name should be minimum {{ userName.errors.minlength.requiredLength }} characters</div>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label for="passowrd"></label>
+                  <input placeholder="Password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" required minlength="8" ngModel name="password" id="password" #password="ngModel" type="password" class="form-control">
+                  <div class="alert alert-danger" *ngIf="password.touched && !password.valid">
+                    <div *ngIf="password.errors.required">Password is required</div>
+                    <div *ngIf="password.errors.pattern">Password should contain uppercase, lowercase and number</div>
+                    <div *ngIf="password.errors.minlength">Password should be minimum {{ password.errors.minlength.requiredLength }} characters</div>
+                  </div>
+              </div>
+              <div class="form-group">
+                <label for="comment"></label>
+                <textarea placeholder="Comment" required ngModel #comment="ngModel" name="comment" id="comment" col="9" rows="10" class="form-control"></textarea>
+                <div class="alert alert-danger" *ngIf="comment.touched && !comment.valid">
+                  <div *ngIf="comment.errors.required"> Comment is required</div>
+                </div>
+              </div>
+              <div class="checkbox">
+                <input id="needInfo" type="checkbox" ngModel name="needInfo">
+                <label for="needInfo" class="form-check-label">Need info</label>
+              </div>
+              <div class="form-group">
+                <label for="contactMethod">Contact Method</label>
+                <select ngModel name="contactMethod" id="contactMethod" class="form-control">
+                  <option value=""></option>
+                  <option *ngFor="let method of contactMethods" [value]="method.name">{{ method.name }}</option>
+                </select>
+              </div> 
+              <div class="text-right">
+                  <button class="btn btn-success" [disabled]="!f.valid">Login</button>
+              </div>
+              <div class="text-left">
+                  <a href="#" (click)="popwin()">Forgot Password</a>
+              </div>
+              
+        </form>  
+      </div>
+      <div class="col-md-5">
+          <h4> <u>form data JSON output</u></h4>
+          <h6>{{ f.value | json }} </h6>
+      </div>
+</div> 
+

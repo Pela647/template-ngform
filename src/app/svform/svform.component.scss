@@ -1,0 +1,36 @@
+$font_main: 'Josefin Sans', sans-serif;
+
+#main {
+    border: 1px solid gray;
+    border-radius: 8px;
+    background-color: #F2F3EB;
+    opacity: 0.9; 
+    box-shadow: 8px 8px gray;
+}
+
+h4 {
+    text-align: center;
+    font-family:  $font_main;
+    font-weight: 200;
+    color: #000;
+}
+label, h6 {
+    text-align: center;
+    font-family: $font_main;
+    color: black;
+}
+.btn {
+    text-align: center;
+    font-family: $font_main;
+    border-radius: 17px;
+}
+
+input, textarea, select {
+    border-color: gray;
+    font-family: $font_main;
+    border-radius: 20px;
+}
+
+.alert.alert-danger,a {
+    font-family: $font_main;
+}
